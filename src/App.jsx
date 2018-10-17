@@ -15,6 +15,7 @@ export default class App extends Component {
     "showChallenge": false
   }
 
+
   showChallenge() {
     const showStatus = this.state.showChallenge !== true;
     this.setState({ showChallenge: showStatus });
@@ -23,7 +24,7 @@ export default class App extends Component {
   componentDidUpdate() {
     if (this.state.showChallenge === true) {
       const elem = document.getElementById('challenge');
-      elem.scrollIntoView({ block: 'start', inline: 'nearest', behavior: 'smooth' });
+      elem.scrollIntoView({ block: 'start', inline: 'nearest', behavior: 'instant' });
     }
   }
 
@@ -41,4 +42,3 @@ export default class App extends Component {
     );
   }
 }
-
