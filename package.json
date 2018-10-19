@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "babel-preset-stage-1": "^6.24.1",
+    "ajv": "^6.1.1",
+    "jest": "^22.1.4",
+    "jest-environment-webdriver": "^0.2.0",
     "material-ui": "^0.20.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
@@ -16,11 +18,19 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "jest",
     "eject": "react-scripts eject",
     "lint": "./node_modules/.bin/eslint src/* --fix"
   },
+  "jest": {
+    "verbose": true,
+    "testURL": "http://localhost:3000/",
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    }
+  },
   "devDependencies": {
+    "@babel/preset-env": "^7.1.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.10.0",
