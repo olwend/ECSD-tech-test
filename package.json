@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "ajv": "^6.1.1",
+    "chromedriver": "^2.43.0",
+    "geckodriver": "^1.12.2",
     "jest": "^22.1.4",
     "jest-environment-webdriver": "^0.2.0",
     "material-ui": "^0.20.0",
@@ -18,7 +20,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "start-server": "npm start",
     "test": "jest",
+    "ci": "start-server-and-test start-server http://localhost:3000 test",
     "eject": "react-scripts eject",
     "lint": "./node_modules/.bin/eslint src/* --fix"
   },
@@ -35,6 +39,11 @@
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.10.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.7.0"
+    "eslint-plugin-react": "^7.7.0",
+    "start-server-and-test": "^1.7.4"
+  },
+  "testEnvironment": "jest-environment-webdriver",
+  "testEnvironmentOptions": {
+    "browser": "chrome"
   }
 }
