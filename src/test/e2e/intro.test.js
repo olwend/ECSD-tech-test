@@ -29,7 +29,7 @@ describe('ECS Intro page renders', () => {
   });
 });
 
-describe('Data table scrape', () => {
+describe('Data table scrape into arrays', () => {
   test('read in array1-tr1', async () => {
     const tablerow1 = await browser.findElement(by.xpath('//tr[@id="tr1"]')).getText();
     array1 = tablerow1.split(" ");
@@ -48,27 +48,7 @@ describe('Data table scrape', () => {
   });
 });
 
-// describe ('Process row data into arrays'), () => {
-//   test('read in array2-tr2', async () => {
-//
-//   });
-//
-//   test('zeroes', async () => {
-//
-//   });
-//
-//   test('negative numbers', async () => {
-//
-//   });
-//
-//   test('decimals', async () => {
-//
-//   });
-//
-//   test('NaN', async () => {
-//
-//   });
-// });
+
 
 
 
