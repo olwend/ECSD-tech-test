@@ -9,7 +9,7 @@ const verifyEndpoint = 'https://eqe90bcod2.execute-api.eu-west-1.amazonaws.com/l
 const paperStyle = {
   padding: 10,
   height: 500,
-  flex: 1, 
+  flex: 1,
   flexDirection: 'row',
   alignItems:'center',
   textAlign: 'center',
@@ -36,7 +36,7 @@ export default class AnswerTable extends Component {
     super()
     this.handleClose = this.handleClose.bind(this)
   }
-  
+
   state = {
     "dialogBoxOpen": false,
     "complete": false
@@ -51,16 +51,16 @@ export default class AnswerTable extends Component {
 
   fetch(verifyEndpoint, {
       mode: 'cors',
-      body: JSON.stringify({                
+      body: JSON.stringify({
         "answer-1": this.state["answer-1"],
         "answer-2": this.state["answer-2"],
         "answer-3": this.state["answer-3"],
         "challenger-name": this.state["challenger-name"]
-    }), 
+    }),
         headers: {
         'content-type': 'application/json'
       },
-      method: 'POST', 
+      method: 'POST',
     })
     .then(response => response.text())
     .then(text => {
@@ -85,10 +85,10 @@ export default class AnswerTable extends Component {
           <Paper style={answerStyle}>
             <TextField data-test-id={"submit-1"} hintStyle={rowStyle} hintText="submit challenge 1" underlineShow={false} onChange={(event, value) => this.handleText(event, value, 'answer-1')}/>
             <Divider />
-            <TextField data-test-id={"submit-2"} hintStyle={rowStyle} hintText="submit challenge 1" underlineShow={false} onChange={(event, value) => this.handleText(event, value, 'answer-2')}/>
+            <TextField data-test-id={"submit-2"} hintStyle={rowStyle} hintText="submit challenge 2" underlineShow={false} onChange={(event, value) => this.handleText(event, value, 'answer-2')}/>
             <Divider />
             <TextField data-test-id={"submit-3"} hintStyle={rowStyle} hintText="submit challenge 3" underlineShow={false} onChange={(event, value) => this.handleText(event, value, 'answer-3')}/>
-            <Divider />            
+            <Divider />
             <TextField data-test-id={"submit-4"} hintStyle={rowStyle} hintText="Your Name" underlineShow={false} onChange={(event, value) => this.handleText(event, value, 'challenger-name')}/>
           </Paper>
           <p>On submission we will verify if your answers are correct.</p>

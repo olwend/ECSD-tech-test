@@ -1,7 +1,9 @@
 /**
  * @jest-environment jest-environment-webdriver
  */
-
+var array1 = new Array;
+var array2 = new Array;
+var array3 = new Array;
 var webdriver = require("selenium-webdriver");
 var browser = new webdriver.Builder().usingServer()
   .withCapabilities({
@@ -23,41 +25,50 @@ describe('ECS Intro page renders', () => {
     const renderchallenge = button.click();
     const chtitle = await browser.findElement(by.xpath('//h1[@id="chtitle"]')).getText();
     expect(chtitle).toContain('Arrays');
+
   });
 });
 
-describe('Data table', () => {
+describe('Data table scrape', () => {
   test('read in array1-tr1', async () => {
     const tablerow1 = await browser.findElement(by.xpath('//tr[@id="tr1"]')).getText();
-    console.log(tablerow1);
-
+    array1 = tablerow1.split(" ");
+    console.log(array1);
   });
 
   test('read in array2-tr2', async () => {
     const tablerow2 = await browser.findElement(by.xpath('//tr[@id="tr2"]')).getText();
-    console.log(tablerow2);
-
+    array2 = tablerow2.split(" ");
+    console.log(array2.length);
   });
 
   test('read in array3-tr3', async () => {
     const tablerow3 = await browser.findElement(by.xpath('//tr[@id="tr3"]')).getText();
-    console.log(tablerow3);
-
-  })
+    array3 = tablerow3.split(" ");
+  });
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
+// describe ('Process row data into arrays'), () => {
+//   test('read in array2-tr2', async () => {
+//
+//   });
+//
+//   test('zeroes', async () => {
+//
+//   });
+//
+//   test('negative numbers', async () => {
+//
+//   });
+//
+//   test('decimals', async () => {
+//
+//   });
+//
+//   test('NaN', async () => {
+//
+//   });
+// });
 
 
 
