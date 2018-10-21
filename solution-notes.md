@@ -5,7 +5,7 @@
       - Logic and test case definition below
 
       Inline-style:
-      ![Test case data](./midIndex logic test cases.png "Analysis")
+      ![Test case data](./logictestcases.png "Analysis")
 
       - Framework drives workflow from scraping data to clicking the Submit answers button to verify function tested above.
 
