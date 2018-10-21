@@ -24,8 +24,45 @@ describe('ECS Intro page renders', () => {
     const chtitle = await browser.findElement(by.xpath('//h1[@id="chtitle"]')).getText();
     expect(chtitle).toContain('Arrays');
   });
+});
+
+describe('Data table', () => {
+  test('read in array1-tr1', async () => {
+    const tablerow1 = await browser.findElement(by.xpath('//tr[@id="tr1"]')).getText();
+    console.log(tablerow1);
+
+  });
+
+  test('read in array2-tr2', async () => {
+    const tablerow2 = await browser.findElement(by.xpath('//tr[@id="tr2"]')).getText();
+    console.log(tablerow2);
+
+  });
+
+  test('read in array3-tr3', async () => {
+    const tablerow3 = await browser.findElement(by.xpath('//tr[@id="tr3"]')).getText();
+    console.log(tablerow3);
+
+  })
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   //
   // afterAll(() => {
   //   return browser.quit();
   // });
-});
