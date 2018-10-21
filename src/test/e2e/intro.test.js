@@ -17,14 +17,15 @@ describe('ECS Intro page renders', () => {
     expect(title).toContain('ECSDigital')
   });
 
-  test('it has clickable "render the challenge" button', async () => {
+  test('it renders "Arrays Challenge" by clicking "render the challenge" button', async () => {
     await browser.get(url);
     const button = await browser.findElement(by.xpath('//*[@id="home"]/div/div/button'));
-    const challenge = button.click();
-    // expect('h1').toContain('Arrays Challenge')
+    const renderchallenge = button.click();
+    const chtitle = await browser.findElement(by.xpath('//h1[@id="chtitle"]')).getText();
+    expect(chtitle).toContain('Arrays');
   });
-
-  afterAll(() => {
-    return browser.quit();
-  });
+  //
+  // afterAll(() => {
+  //   return browser.quit();
+  // });
 });

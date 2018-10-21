@@ -17,7 +17,7 @@ const Challenge = () => (
     <Paper className={"challenge"} style={paperStyle} zDepth={3}>
 
       <div>
-        <h1>Arrays Challenge</h1>
+        <h1 id="chtitle" >Arrays Challenge</h1>
 
         <h3>Below are a number of rows with integers</h3>
 
@@ -25,9 +25,9 @@ const Challenge = () => (
         <p>
           Once you have each array,
           write a function that is able to return the index of the array where the sum of integers at the index on the left is equal to the sum of integers on the right.</p>
-        
+
         <p>If there is no index return null</p>
-          
+
         <p>
           For example given the array <code>[10, 15, 5, 7, 1, 24, 36, 2] </code>
           index 5 (with the value of 24) would be the center, as 10 + 15 + 5 + 7 + 1 = 38 and  36 + 2 = 38
