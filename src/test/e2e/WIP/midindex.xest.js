@@ -2,19 +2,19 @@ const midIndex = require('./midIndex.js');
 
 describe ('low level tests', () => {
 
-  test ('it returns index not value', async () => {
-    var array = [2,2,2];
+  test ('it returns highest index key not value', async () => {
+    var array = [1,2,3];
     const index = midIndex(array);
     expect(index).toEqual(2);
   });
 
-  test ('it returns index 1', async () => {
+  test ('it returns index 1 for test case 1', async () => {
     var index1 = [5,1,1,1,1,1,1];
     const answer = midIndex(index1);
     expect(answer).toEqual(1);
   });
 
-  test ('it returns index 4', async () => {
+  test ('it returns index 4 test case 4', async () => {
     var index4 = [2,1,1,1,10,4,1];
     const answer = midIndex(index1);
     expect(answer).toEqual(4);

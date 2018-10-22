@@ -4,6 +4,8 @@
 var array1 = new Array;
 var array2 = new Array;
 var array3 = new Array;
+jest.setTimeout(15000);
+
 var webdriver = require("selenium-webdriver");
 var browser = new webdriver.Builder().usingServer()
   .withCapabilities({
@@ -23,37 +25,33 @@ describe('ECS Intro page renders', () => {
     await browser.get(url);
     const button = await browser.findElement(by.xpath('//*[@id="home"]/div/div/button'));
     const renderchallenge = button.click();
-    const chtitle = await browser.findElement(by.xpath('//h1[@id="chtitle"]')).getText();
-    expect(chtitle).toContain('Arrays');
-
   });
 });
 
 describe('Data table scrape into arrays', () => {
-  test('read in array1-tr1', async () => {
+  test('read in tr1 gives length as per 9 cols', async () => {
     const tablerow1 = await browser.findElement(by.xpath('//tr[@id="tr1"]')).getText();
     array1 = tablerow1.split(" ");
+    expect(array1.length).toBe(9);
     console.log(array1);
   });
 
-  test('read in array2-tr2', async () => {
+  test('read in tr2 gives length as per 9 cols', async () => {
     const tablerow2 = await browser.findElement(by.xpath('//tr[@id="tr2"]')).getText();
     array2 = tablerow2.split(" ");
-    console.log(array2.length);
+    expect(array2.length).toBe(9);
+    console.log(array2);
   });
 
-  test('read in array3-tr3', async () => {
+  test('read in tr3 gives length as per 9 cols', async () => {
     const tablerow3 = await browser.findElement(by.xpath('//tr[@id="tr3"]')).getText();
     array3 = tablerow3.split(" ");
+    expect(array3.length).toBe(9);
+      console.log(array3);
   });
 });
 
-
-
-
-
-
-  //
-  // afterAll(() => {
-  //   return browser.quit();
-  // });
+  
+  afterAll(() => {
+    return browser.quit();
+  });

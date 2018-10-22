@@ -17,9 +17,9 @@ const Challenge = () => (
     <Paper className={"challenge"} style={paperStyle} zDepth={3}>
 
       <div>
-        <h1 id="chtitle" >Arrays Challenge</h1>
+        <h1 id= "chtitle">Arrays Challenge</h1>
 
-        <h3>Below are a number of rows with integers</h3>
+        <h3 id="header">Below are a number of rows with integers</h3>
 
         <p> Your job is to use selenium to read the dom and create an array data structure for each of the rows.</p>
         <p>
