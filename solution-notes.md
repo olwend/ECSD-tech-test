@@ -5,7 +5,7 @@
       - Logic and test case definition below
 
       Logic and Test Cases:
-      ![Test case data](./logictestcases.jpg "Analysis")
+      ![Test case data](./logictestcases.JPG "Analysis")
 
       - Framework drives workflow from scraping data to clicking the Submit answers button to verify function tested above.
 
