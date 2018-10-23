@@ -4,8 +4,8 @@
       - Function to find the index where the sum of all items on left is equal to the sum of all items on the right.
       - Logic and test case definition below
 
-      Inline-style:
-      ![Test case data](./logictestcases.png "Analysis")
+      Logic and Test Cases:
+      ![Test case data](./logictestcases.jpg "Analysis")
 
       - Framework drives workflow from scraping data to clicking the Submit answers button to verify function tested above.
 
