@@ -2,16 +2,19 @@
   - E2E workflow - to scrape data into array, calculate answer via a function and submit answers into a grid.
   - Tests in scope:
       - Function to find the index where the sum of all items on left is equal to the sum of all items on the right.
-      - Logic and test case definition below
 
       Logic and Test Cases:
       ![Test case data](./logictestcases.JPG "Analysis")
 
+      N.B. While coding the function to find the index, I found an example which created and compared 2 arrays of running sums, so followed that implementation.  I intend to recode with the method I originally planned to get more practice.
+
   - Tests out of scope:
-      - Accessibility , resilience and performance of UI under test.
+      - Accessibility, resilience and performance of ReactApp under test.
       - Submit answer checking logic
 
 ## Choice of test runner
+
+To run tests after installing via npm, use ```npm run ci``` on command line. 
 
 The task prescribes that selenium-webdriver be used. As this is a react-app I chose to trial Jest test-runner. This meant 'data-test-id' could not be used, so I found xpath locators by using selenium IDE.
 I installed jest-environment-webdriver as a bridge, pulling selenium commands into Jest.

@@ -2,6 +2,8 @@
  * @jest-environment jest-environment-webdriver
  */
 
+// Functions to run tests
+
 function getTotal(array) {
   var Total = array.reduce((a, b) => a + b, 0);
   return Total;
@@ -26,6 +28,7 @@ function loopLR(array) {
     }
   }
   console.log('arrayLR: ' + array_LR);
+
   return array_LR;
 }
 
@@ -47,7 +50,14 @@ function loopRL(array) {
     }
   }
   console.log('arrayRL: ' + array_RL);
+
   return array_RL;
+}
+
+function convertStoNum(array) {
+  for (var i=0; i<array.length; i++) {
+    array[i] = +array[i];
+  }
 }
 
 function findAnswer(array) {
@@ -64,6 +74,7 @@ function findAnswer(array) {
   console.log('answer: ' + answerIndex);
   return answerIndex;
 }
+// tests
 
 var array1 = new Array;
 var array2 = new Array;
@@ -124,6 +135,7 @@ describe('Data table scrape into arrays and run function', () => {
 
     const tablerow1 = await browser.findElement(by.xpath('//tr[@id="tr1"]')).getText();
     array1 = tablerow1.split(" ");
+    convertStoNum(array1);
     expect(array1.length).toBe(9);
     console.log(array1);
     findAnswer(array1);
@@ -134,6 +146,7 @@ describe('Data table scrape into arrays and run function', () => {
 
     const tablerow2 = await browser.findElement(by.xpath('//tr[@id="tr2"]')).getText();
     array2 = tablerow2.split(" ");
+    convertStoNum(array2);
     expect(array2.length).toBe(9);
     console.log(array2);
     findAnswer(array2);
@@ -144,6 +157,7 @@ describe('Data table scrape into arrays and run function', () => {
 
     const tablerow3 = await browser.findElement(by.xpath('//tr[@id="tr3"]')).getText();
     array3 = tablerow3.split(" ");
+    convertStoNum(array3);
     expect(array3.length).toBe(9);
     console.log(array3);
     findAnswer(array3);
