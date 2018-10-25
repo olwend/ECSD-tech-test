@@ -108,19 +108,19 @@ describe('ECS Intro page', () => {
 
 describe('Iterate to create running sum arrays', () => {
 
-  xtest('getTotal gives sum of array items', async () => {
+  test('getTotal gives sum of array items', async () => {
     var array = [4, 4, 4];
     var total = getTotal(array);
     expect(total).toEqual(12);
   });
 
-  xtest('iterate from L -> R and each element returns a runningSum', async () => {
+  test('iterate from L -> R and each element returns a runningSum', async () => {
     var array = [5, 1, 1, 1, 1, 1, 1];
     var array_LR = loopLR(array);
     expect(array_LR).toContain(7);
   });
 
-  xtest('iterate from R -> L and each element returns a runningSum', async () => {
+  test('iterate from R -> L and each element returns a runningSum', async () => {
     var array = [5, 1, 1, 1, 1, 1, 1];
     var array_RL = loopRL(array);
     expect(array_RL).toContain(11);
@@ -159,7 +159,7 @@ describe('findAnswer() test cases', () => {
 
 
 describe('Data table scrape', () => {
-  xtest('it reads in tr1 gives array1 length as per 9 cols and & call findAnswer', async () => {
+  test('it reads in tr1 gives array1 length as per 9 cols and & call findAnswer', async () => {
 
     const tablerow1 = await browser.findElement(by.xpath('//tr[@id="tr1"]')).getText();
     array1 = tablerow1.split(" ");
@@ -169,7 +169,7 @@ describe('Data table scrape', () => {
     findAnswer(array1,1);
   });
 
-  xtest('it reads in tr2 gives array2 length as per 9 cols & call findAnswer', async () => {
+  test('it reads in tr2 gives array2 length as per 9 cols & call findAnswer', async () => {
 
     const tablerow2 = await browser.findElement(by.xpath('//tr[@id="tr2"]')).getText();
     array2 = tablerow2.split(" ");
@@ -179,7 +179,7 @@ describe('Data table scrape', () => {
     findAnswer(array2,2);
   });
 
-  xtest('it reads in tr3 gives array3 length as per 9 cols & call findAnswer', async () => {
+  test('it reads in tr3 gives array3 length as per 9 cols & call findAnswer', async () => {
 
     const tablerow3 = await browser.findElement(by.xpath('//tr[@id="tr3"]')).getText();
     array3 = tablerow3.split(" ");
@@ -192,11 +192,10 @@ describe('Data table scrape', () => {
 
 describe('Answers', async () => {
 //
-//   test('it has answers in an array', async () => {
-//     console.log(answers);
+//   test('it has visibility of answers in an array', async () => {
 //   });
 
-  xtest('it can input answer1', async () => {
+  test('it can input answer1', async () => {
     const ans1Input = await browser.findElement(by.xpath('//*[@id="challenge"]/div/div/div[2]/div/div[1]/div[1]/input'));
     await ans1Input.sendKeys(answers[0]);
   });
@@ -206,12 +205,12 @@ describe('Answers', async () => {
     await ans2Input.sendKeys(answers[1]);
   });
 
-  xtest('it can input answer3', async () => {
+  test('it can input answer3', async () => {
     const ans3Input = await browser.findElement(by.xpath('//*[@id="challenge"]/div/div/div[2]/div/div[1]/div[3]/input'));
     await ans3Input.sendKeys(answers[2]);
   });
 
-  xtest('it can input fullName', async () => {
+  test('it can input fullName', async () => {
     const nameInput = await browser.findElement(by.xpath('//*[@id="challenge"]/div/div/div[2]/div/div[1]/div[4]/input'));
     await nameInput.sendKeys(fullName);
   });
