@@ -14,7 +14,8 @@
 
 ## Choice of test runner
 
-To run tests after installing via npm, use ```npm run ci``` on command line. 
+To run tests after installing via npm, use ```npm run ci``` on command line.
+View test results via html report at root  file://root/test-report.html
 
 The task prescribes that selenium-webdriver be used. As this is a react-app I chose to trial Jest test-runner. This meant 'data-test-id' could not be used, so I found xpath locators by using selenium IDE.
 I installed jest-environment-webdriver as a bridge, pulling selenium commands into Jest.

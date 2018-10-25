@@ -27,6 +27,7 @@
     "lint": "./node_modules/.bin/eslint src/* --fix"
   },
   "jest": {
+    "testResultsProcessor": "./node_modules/jest-html-reporter",
     "verbose": true,
     "testURL": "http://localhost:3000/",
     "transform": {
