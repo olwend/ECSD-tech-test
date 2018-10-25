@@ -5,16 +5,16 @@
 // Functions to run tests
 
 function getTotal(array) {
-  var Total = array.reduce((a, b) => a + b, 0);
+  let Total = array.reduce((a, b) => a + b, 0);
   return Total;
 };
 
 function loopLR(array) {
-  var runningSum = 0;
-  var x;
-  var array_LR = [];
+  let runningSum = 0;
+  let x;
+  let array_LR = [];
 
-  for (var i = 0; i < array.length; i++) {
+  for (let i = 0; i < array.length; i++) {
     if (i == 0) {
       array_LR[0] = array[0];
     } else {
@@ -32,10 +32,10 @@ function loopLR(array) {
 }
 
 function loopRL(array) {
-  var runningSum = 0;
-  var x;
-  var array_RL = [];
-  for (var i = array.length - 1; i > -1; i--) {
+  let runningSum = 0;
+  let x;
+  let array_RL = [];
+  for (let i = array.length - 1; i > -1; i--) {
     if (i == array.length - 1) {
       array_RL[i] = array[i];
     } else {
@@ -53,17 +53,17 @@ function loopRL(array) {
 }
 
 function convertStoNum(array) {
-  for (var i = 0; i < array.length; i++) {
+  for (let i = 0; i < array.length; i++) {
     array[i] = +array[i];
   }
 }
 
 function findAnswer(array, row) {
-  var arrayLR = loopLR(array);
-  var arrayRL = loopRL(array);
-  const answers = [];
+  let arrayLR = loopLR(array);
+  let arrayRL = loopRL(array);
+  let answers = [];
 
-  for (var i = 0; i < array.length; i++) {
+  for (let i = 0; i < array.length; i++) {
     if (arrayLR[i] == arrayRL[i]) {
         answers[row-1] =i;
 
@@ -74,17 +74,16 @@ function findAnswer(array, row) {
   return answers[row-1];
 }
 // tests
-
-var array1 = new Array;
-var array2 = new Array;
-var array3 = new Array;
-const answers = [null, null, null];
-const row = row;
+let array1 = new Array;
+let array2 = new Array;
+let array3 = new Array;
+let answers = [null, null, null];
+let row;
 
 jest.setTimeout(20000);
 
-var webdriver = require("selenium-webdriver");
-var browser = new webdriver.Builder().usingServer()
+const webdriver = require("selenium-webdriver");
+const browser = new webdriver.Builder().usingServer()
   .withCapabilities({
     browserName: "chrome"
   })
@@ -109,20 +108,20 @@ describe('ECS Intro page', () => {
 describe('Iterate to create running sum arrays', () => {
 
   test('getTotal gives sum of array items', async () => {
-    var array = [4, 4, 4];
-    var total = getTotal(array);
+    const array = [4, 4, 4];
+    let total = getTotal(array);
     expect(total).toEqual(12);
   });
 
   test('iterate from L -> R and each element returns a runningSum', async () => {
-    var array = [5, 1, 1, 1, 1, 1, 1];
-    var array_LR = loopLR(array);
+    const array = [5, 1, 1, 1, 1, 1, 1];
+    let array_LR = loopLR(array);
     expect(array_LR).toContain(7);
   });
 
   test('iterate from R -> L and each element returns a runningSum', async () => {
-    var array = [5, 1, 1, 1, 1, 1, 1];
-    var array_RL = loopRL(array);
+    const array = [5, 1, 1, 1, 1, 1, 1];
+    let array_RL = loopRL(array);
     expect(array_RL).toContain(11);
   });
 });
@@ -143,23 +142,22 @@ describe('findAnswer() test cases', () => {
   });
 
   test('it handles decimals', async () => {
-    const tcnull = [1.0,2.0,3.0,1.0,3.0,3.0];
-    console.log(tcnull);
-    findAnswer(tcnull,1);
+    const tcdecint = [1.0,2.0,3.0,1.0,3.0,3.0];
+    console.log(tcdecint);
+    findAnswer(tcdecint,1);
     expect(answers[row-1]).toEqual(3);
   });
 
   test('it handles decimals < 1', async () => {
-    const tcnull = [2.0,1.0,0.2,0.8,0.3,0.7];
-    console.log(tcnull);
-    findAnswer(tcnull,1);
+    const tcdecf = [2.0,1.0,0.2,0.8,0.3,0.7];
+    console.log(tcdecf);
+    findAnswer(tcdecf,1);
     expect(answers[row-1]).toEqual(1);
   });
 });
 
-
 describe('Data table scrape', () => {
-  test('it reads in tr1 gives array1 length as per 9 cols and & call findAnswer', async () => {
+  test('read in tr1 gives array1 length as per 9 cols & calls findAnswer', async () => {
 
     const tablerow1 = await browser.findElement(by.xpath('//tr[@id="tr1"]')).getText();
     array1 = tablerow1.split(" ");
@@ -169,7 +167,7 @@ describe('Data table scrape', () => {
     findAnswer(array1,1);
   });
 
-  test('it reads in tr2 gives array2 length as per 9 cols & call findAnswer', async () => {
+  test('read in tr2 gives array2 length as per 9 cols & calls findAnswer', async () => {
 
     const tablerow2 = await browser.findElement(by.xpath('//tr[@id="tr2"]')).getText();
     array2 = tablerow2.split(" ");
@@ -179,7 +177,7 @@ describe('Data table scrape', () => {
     findAnswer(array2,2);
   });
 
-  test('it reads in tr3 gives array3 length as per 9 cols & call findAnswer', async () => {
+  test('read in tr3 gives array3 length as per 9 cols & calls findAnswer', async () => {
 
     const tablerow3 = await browser.findElement(by.xpath('//tr[@id="tr3"]')).getText();
     array3 = tablerow3.split(" ");
@@ -191,16 +189,19 @@ describe('Data table scrape', () => {
 });
 
 describe('Answers', async () => {
-//
-//   test('it has visibility of answers in an array', async () => {
-//   });
+
+  test('it has visibility of answers in an array', async () => {
+    // const test = answers[0];
+    console.log(typeof answers[0]);
+    expect(test).toContain([null]);
+  });
 
   test('it can input answer1', async () => {
     const ans1Input = await browser.findElement(by.xpath('//*[@id="challenge"]/div/div/div[2]/div/div[1]/div[1]/input'));
     await ans1Input.sendKeys(answers[0]);
   });
 
-  xtest('it can input answer2', async () => {
+  test('it can input answer2', async () => {
     const ans2Input = await browser.findElement(by.xpath('//*[@id="challenge"]/div/div/div[2]/div/div[1]/div[2]/input'));
     await ans2Input.sendKeys(answers[1]);
   });
@@ -215,7 +216,7 @@ describe('Answers', async () => {
     await nameInput.sendKeys(fullName);
   });
 
-  xtest('it can submit input answers via button', async () => {
+  test('it can submit input answers via button', async () => {
     const submitButton = await browser.findElement(by.xpath('//*[@id="challenge"]/div/div/div[2]/div/div[2]/button'));
     await submitButton.click();
   });
