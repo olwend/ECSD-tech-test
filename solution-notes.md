@@ -44,3 +44,4 @@ See https://github.com/facebook/create-react-app/issues/4367
   - This would facilitate smaller files split by 'describe' groups and functions for separation of concerns. Jest can parallel run these for speed.
   - I have seen sporadic failures. The tests can be made more resilient with better use of promises via async/await or by adding 'timeouts' at key points.
   - I would add exceptions to the tests to ensure that a real failure can be distinguished from a timing or environment issue.
+  - I would remove the chain of methods from tests, by calling these from within an overall e2e workflow method.
