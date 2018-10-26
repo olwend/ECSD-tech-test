@@ -4,7 +4,7 @@
       - Function to find the index where the sum of all items on left is equal to the sum of all items on the right.
 
       Logic and Test Cases:
-      ![Test case data](./logictestcases.JPG "Analysis")
+      ![Test case data](./ECSD_final.png "Analysis")
 
       N.B. While coding the function to find the index, I found an example which created and compared 2 arrays of running sums, so followed that implementation.  I intend to recode with the method I originally planned to get more practice.
 
@@ -14,8 +14,10 @@
 
 ## Choice of test runner
 
+To run manually using the (npm package.lock.json) `npm run start-server http://localhost:3000`
+
 To run tests after installing via npm, use ```npm run ci``` on command line.
-View test results via html report at root  file://root/test-report.html
+View test results via html report at root     `file://root/test-report.html`
 
 The task prescribes that selenium-webdriver be used. As this is a react-app I chose to trial Jest test-runner. This meant 'data-test-id' could not be used, so I found xpath locators by using selenium IDE.
 I installed jest-environment-webdriver as a bridge, pulling selenium commands into Jest.
